@@ -1,0 +1,25 @@
+/* styles.css */
+body {
+    background-color: #f5f5f5;
+}
+
+.carousel-inner img {
+    height: 300px;
+    object-fit: cover;
+    width: 100%;
+}
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+background-color: rgba(50, 50, 50, 0.5);  /* 50, 50, 50 is the RGB color value for dark grey */
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+color: rgba(50, 50, 50, 0.9);
+text-decoration: none;
+background-color: rgba(0, 0, 0, 0.3);
+}
+.nav-item.active .nav-link {
+font-weight: bold;
+color: #000;  /* or any color you prefer */
+}
