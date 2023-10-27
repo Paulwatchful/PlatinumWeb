@@ -1,0 +1,26 @@
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Page</title>
+</head>
+<body>
+    <form id="jobForm">
+        <input type="text" id="jobTitle" placeholder="Job Title">
+        <input type="text" id="jobDescription" placeholder="Job Description">
+        <button type="button" onclick="addJob()">Add Job</button>
+    </form>
+    <script>
+        function addJob() {
+            let jobTitle = document.getElementById('jobTitle').value;
+            let jobDescription = document.getElementById('jobDescription').value;
+            
+            // Use AJAX to send this data to server-side script to update the database or file
+        }
+    </script>
+</body>
+</html>

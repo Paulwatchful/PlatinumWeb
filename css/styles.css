@@ -23,3 +23,8 @@ background-color: rgba(0, 0, 0, 0.3);
 font-weight: bold;
 color: #000;  /* or any color you prefer */
 }
+.carousel-inner img {
+    width: 100%;
+    height: 100%;
+   object-fit: cover; /* This ensures that images scale correctly *
+}
