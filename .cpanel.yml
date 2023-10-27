@@ -1,5 +1,5 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/auburnzq/public_html/newsite/
+    - export DEPLOYPATH=/home/auburnzq/platinumhomecare.co.uk/
     - /bin/cp -R * $DEPLOYPATH
