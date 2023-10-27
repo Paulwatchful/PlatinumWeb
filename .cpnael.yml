@@ -1,5 +1,5 @@
 ---
 deployment:
   tasks:
-    - export DEPLOPATH=/home/auburnzq/public_html/newsite/
+    - export DEPLOYPATH=/home/auburnzq/public_html/newsite/
     - /bin/cp -R * $DEPLOYPATH
