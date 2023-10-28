@@ -15,57 +15,58 @@
 </head>
 
 <body>
-  <!-- Navigation Bar -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container">
-    
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="index.html">Platinum Homecare</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="auburn.html">Auburn Lodge Care Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="contact.html">Contact Us</a>
-                </li>
-                
-                <li class="nav-item">
-                    <a class="nav-link" href="jobs.html">Job Vacancies</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="privacy.html">Privacy Notice</a>
-                </li>
-            </ul>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Platinum Homecare</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="auburn.html">Auburn Lodge Care Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="jobs.html">Job Vacancies</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="privacy.html">Privacy Notice</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
 
     <div class="container mt-5">
         <h2 class="text-center">Job Vacancies</h2>
-        <div id="jobsList"></div>
+        <div id="jobsList" class="row"></div> <!-- Added "row" class -->
     </div>
 
     <script>
-        $(document).ready(function(){
+        $(document).ready(function() {
             $.ajax({
                 url: "jobs_handler.php?action=getJobs",
                 type: "GET",
                 dataType: "json",
-                success: function(jobs) {
+                success: function(response) {
+                    var jobs = response.data; // Assuming the response has a "data" field that contains the jobs
                     var html = '';
                     for (var i = 0; i < jobs.length; i++) {
-                        html += '<div class="job card mt-3">';
+                        html += '<div class="col-md-4 mb-4">'; // Bootstrap class to create columns
+                        html += '<div class="job card h-100">';
                         html += '<div class="card-header">' + jobs[i].job_title + '</div>';
                         html += '<div class="card-body">';
                         html += '<p>' + jobs[i].job_description + '</p>';
                         html += '</div>';
                         html += '</div>';
+                        html += '</div>'; // close the column
                     }
                     $('#jobsList').html(html);
                 }
