@@ -81,5 +81,3 @@ $conn->close();
 
 
 
-$conn->close();
-?>
