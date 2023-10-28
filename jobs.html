@@ -59,7 +59,7 @@
                     var jobs = response.data; // Assuming the response has a "data" field that contains the jobs
                     var html = '';
                     for (var i = 0; i < jobs.length; i++) {
-                        html += '<div class="col-md-4 mb-4">'; // Bootstrap class to create columns
+                        html += '<div class="col-md-4 mb-4 pt-3">'; // Bootstrap class to create columns
                         html += '<div class="job card h-100">';
                         html += '<div class="card-header">' + jobs[i].job_title + '</div>';
                         html += '<div class="card-body">';
