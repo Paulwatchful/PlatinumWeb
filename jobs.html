@@ -48,17 +48,26 @@
         </div>
     </nav>
 
-<!DOCTYPE html>
-<html>
-<head>
-    
-    <title>Jobs Page</title>
-</head>
-<body>
-    
     <div id="jobsList"></div>
+    
     <script>
-        // Use AJAX to fetch job vacancies from server-side database or file and display them
+        $(document).ready(function(){
+            $.ajax({
+                url: "jobs_handler.php?action=getJobs",
+                type: "GET",
+                dataType: "json",
+                success: function(jobs) {
+                    var html = '';
+                    for (var i = 0; i < jobs.length; i++) {
+                        html += '<div class="job">';
+                        html += '<h2>' + jobs[i].job_title + '</h2>';
+                        html += '<p>' + jobs[i].job_description + '</p>';
+                        html += '</div>';
+                    }
+                    $('#jobsList').html(html);
+                }
+            });
+        });
     </script>
 </body>
 </html>

@@ -1,5 +1,3 @@
-// scripts.js
-
 document.addEventListener("DOMContentLoaded", function() {
     var navItems = document.querySelectorAll('.nav-item');
     
@@ -11,9 +9,7 @@ document.addEventListener("DOMContentLoaded", function() {
             item.classList.add('active');
         });
     });
-});
 
-document.addEventListener("DOMContentLoaded", function() {
     var navLinks = document.querySelectorAll('.nav-link');
 
     navLinks.forEach(function(link) {
