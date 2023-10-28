@@ -50,6 +50,7 @@
                 title: jobTitle,
                 description: jobDescription
             },
+            dataType: "json",
             success: function (data) {
                 if (data.success) {
                     loadJobs();
@@ -65,22 +66,27 @@
             type: "GET",
             url: "jobs_handler.php",
             data: {
-                action: "get"
+                action: "getJobs"
             },
-            success: function (jobs) {
-                let html = '';
-                for (let job of jobs) {
-                    html += '<tr>';
-                    html += `<td>${job.id}</td>`;
-                    html += `<td>${job.job_title}</td>`;
-                    html += `<td>${job.job_description}</td>`;
-                    html += '<td>';
-                    html += `<button class="btn btn-sm btn-warning" onclick="editJob(${job.id})">Edit</button> `;
-                    html += `<button class="btn btn-sm btn-danger" onclick="deleteJob(${job.id})">Delete</button>`;
-                    html += '</td>';
-                    html += '</tr>';
+            dataType: "json",
+            success: function (data) {
+                if (data.success) {
+                    let html = '';
+                    for (let job of data.data) {
+                        html += '<tr>';
+                        html += `<td>${job.id}</td>`;
+                        html += `<td>${job.job_title}</td>`;
+                        html += `<td>${job.job_description}</td>`;
+                        html += '<td>';
+                        html += `<button class="btn btn-sm btn-warning" onclick="editJob(${job.id})">Edit</button> `;
+                        html += `<button class="btn btn-sm btn-danger" onclick="deleteJob(${job.id})">Delete</button>`;
+                        html += '</td>';
+                        html += '</tr>';
+                    }
+                    document.getElementById('jobsTableBody').innerHTML = html;
+                } else {
+                    alert(data.message);
                 }
-                document.getElementById('jobsTableBody').innerHTML = html;
             }
         });
     }
@@ -98,6 +104,7 @@
                     action: "delete",
                     id: id
                 },
+                dataType: "json",
                 success: function (data) {
                     if (data.success) {
                         loadJobs();
