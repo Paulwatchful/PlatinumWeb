@@ -1,12 +1,13 @@
 <?php
-if (!isset($_SERVER['PHP_AUTH_USER'])) {
+$user = 'admin';
+$pass = 'Platinum10';
+
+if (!isset($_SERVER['PHP_AUTH_USER']) || !isset($_SERVER['PHP_AUTH_PW']) ||
+    $_SERVER['PHP_AUTH_USER'] != $user || $_SERVER['PHP_AUTH_PW'] != $pass) {
     header('WWW-Authenticate: Basic realm="Admin Page"');
     header('HTTP/1.0 401 Unauthorized');
-    echo 'Authentication required.';
+    echo 'You must enter a valid login ID and password to access this resource.';
     exit;
-} else {
-    echo "<p>Hello {$_SERVER['PHP_AUTH_USER']}.</p>";
-    echo "<p>You entered {$_SERVER['PHP_AUTH_PW']} as your password.</p>";
 }
 ?>
 
