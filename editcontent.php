@@ -29,7 +29,36 @@ if (!isset($_SERVER['PHP_AUTH_USER']) || !isset($_SERVER['PHP_AUTH_PW']) ||
 </head>
 
 <body>
-
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+        
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Platinum Homecare</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="auburn.html">Auburn Lodge Care Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact Us</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="jobs.html">Job Vacancies</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="privacy.html">Privacy Notice</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 <div class="container mt-5">
 
     <!-- Job Adding Form -->
