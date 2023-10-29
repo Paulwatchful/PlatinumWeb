@@ -24,75 +24,118 @@
             padding: 30px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
+
+        .address-container {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .address-box {
+            width: 45%;
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
     </style>
 </head>
-     <!-- Navigation Bar -->
-     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container">
-        
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html">Platinum Homecare</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="auburn.html">Auburn Lodge Care Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contact Us</a>
-                    </li>
-                    
-                    <li class="nav-item">
-                        <a class="nav-link" href="jobs.html">Job Vacancies</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="privacy.html">Privacy Notice</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-<body>
 
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Platinum Homecare</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="auburn.html">Auburn Lodge Care Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="jobs.html">Job Vacancies</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="privacy.html">Privacy Notice</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<body>
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="contact-container">
                     <h2>Contact Us</h2>
                     <p>Please fill out the form below and we'll get back to you shortly.</p>
-                    <form>
+                    <form id="contactForm">
+                        <!-- Dropdown for contact selection -->
+                        <div class="form-group">
+                            <label for="contactType">Contacting</label>
+                            <select class="form-control" id="contactType">
+                                <option value="info@platinumhomecare.co.uk">Platinum Homecare</option>
+                                <option value="info@auburnlodge.co.uk">Auburn Lodge Care Home</option>
+                            </select>
+                        </div>
                         <!-- Name field -->
                         <div class="form-group">
                             <label for="name">Name</label>
-                            <input type="text" class="form-control" id="name" placeholder="Your name">
+                            <input type="text" class="form-control" id="name" placeholder="Your name" required>
                         </div>
                         <!-- Email field -->
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="email" class="form-control" id="email" placeholder="Your email">
+                            <input type="email" class="form-control" id="email" placeholder="Your email" required>
                         </div>
                         <!-- Subject field -->
                         <div class="form-group">
                             <label for="subject">Subject</label>
-                            <input type="text" class="form-control" id="subject" placeholder="Subject">
+                            <input type="text" class="form-control" id="subject" placeholder="Subject" required>
                         </div>
                         <!-- Message field -->
                         <div class="form-group">
                             <label for="message">Message</label>
-                            <textarea class="form-control" id="message" rows="5" placeholder="Your message"></textarea>
+                            <textarea class="form-control" id="message" rows="5" placeholder="Your message" required></textarea>
                         </div>
                         <!-- Submit button -->
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
                 </div>
+                <!-- Address Boxes -->
+                <div class="address-container">
+                    <div class="address-box">
+                        <h4>Auburn Lodge Care Home</h4>
+                        <p>Insert Auburn Lodge Care Home Address Here</p>
+                    </div>
+                    <div class="address-box">
+                        <h4>Platinum Homecare</h4>
+                        <p>Insert Platinum Homecare Address Here.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    <script src="js/scripts.js"></script>
-</body>
 
+    <script src="js/scripts.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#contactForm').submit(function (event) {
+                event.preventDefault();
+                var contactType = $('#contactType').val();
+                // The email sending logic goes here.
+                // Use the contactType variable as the email address to which you want to send the email.
+                console.log('Sending email to:', contactType);
+            });
+        });
+    </script>
+</body>
 </html>
