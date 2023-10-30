@@ -1,4 +1,7 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 require 'vendor/autoload.php';
 
 $mail = new PHPMailer\PHPMailer\PHPMailer();
@@ -7,7 +10,7 @@ $mail->isSMTP();
 $mail->Host = 'mail.platinumhomecare.co.uk';
 $mail->SMTPAuth = true;
 $mail->Username = 'contactform@platinumhomecare.co.uk';
-$mail->Password = ''; // Your email password
+$mail->Password = 'Platinum10**'; // Your email password
 $mail->SMTPSecure = 'ssl';
 $mail->Port = 465;
 
