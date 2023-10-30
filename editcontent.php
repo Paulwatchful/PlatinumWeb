@@ -46,6 +46,9 @@ if (!isset($_SERVER['PHP_AUTH_USER']) || !isset($_SERVER['PHP_AUTH_PW']) ||
                         <a class="nav-link" href="auburn.html">Auburn Lodge Care Home</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="Training.html">Training Room</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="contact.html">Contact Us</a>
                     </li>
                     
