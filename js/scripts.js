@@ -1,21 +1,34 @@
-document.addEventListener("DOMContentLoaded", function() {
-    var navItems = document.querySelectorAll('.nav-item');
+$(document).ready(function () {
+    // Handle navbar item active state on click
+    var navContainer = $('.navbar-nav');
     
-    navItems.forEach(function(item) {
-        item.addEventListener('click', function() {
-            navItems.forEach(function(innerItem) {
-                innerItem.classList.remove('active');
-            });
-            item.classList.add('active');
-        });
+    navContainer.on('click', '.nav-link', function() {
+        $('.nav-item').removeClass('active');
+        $(this).parent().addClass('active');
     });
 
-    var navLinks = document.querySelectorAll('.nav-link');
-
-    navLinks.forEach(function(link) {
-        if (window.location.href.indexOf(link.href) !== -1) {
-            var parent = link.parentElement;
-            parent.classList.add('active');
+    // Set active item based on current URL
+    $('.nav-link').each(function() {
+        if (window.location.href.indexOf(this.href) !== -1) {
+            $(this).parent().addClass('active');
         }
+    });
+
+    // Handle contact form submission
+    $('#contactForm').submit(function (event) {
+        event.preventDefault();
+        var formData = $(this).serialize();
+
+        $.ajax({
+            type: "POST",
+            url: "send_email.php",
+            data: formData,
+            success: function(response){
+                alert('Thank you! Your message has been sent.');
+            },
+            error: function(){
+                alert('There was an error sending your message. Please try again.');
+            }
+        });
     });
 });
