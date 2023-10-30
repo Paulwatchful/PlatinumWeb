@@ -1,7 +1,7 @@
 <?php
-require 'path_to/PHPMailer/PHPMailerAutoload.php';
+require 'vendor/autoload.php';
 
-$mail = new PHPMailer;
+$mail = new PHPMailer\PHPMailer\PHPMailer();
 
 $mail->isSMTP();
 $mail->Host = 'mail.platinumhomecare.co.uk';
