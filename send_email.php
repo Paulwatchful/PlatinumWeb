@@ -10,7 +10,7 @@ $mail->isSMTP();
 $mail->Host = 'mail.platinumhomecare.co.uk';
 $mail->SMTPAuth = true;
 $mail->Username = 'contactform@platinumhomecare.co.uk';
-$mail->Password = ''; // Your email password
+$mail->Password = 'Platinum10**'; // Your email password
 $mail->SMTPSecure = 'ssl';
 $mail->Port = 465;
 
