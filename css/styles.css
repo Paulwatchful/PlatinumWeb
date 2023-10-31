@@ -108,8 +108,3 @@ body {
     max-width: 100%;
     height: auto;
 }
-.section-image {
-    width: 100%; /* This will make sure the image takes the full width of its container. */
-    height: 300px; /* Fixed height. Adjust this value as needed. */
-    object-fit: cover; /* This will ensure that the image covers the dimensions without warping. */
-}
