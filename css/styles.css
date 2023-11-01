@@ -22,6 +22,8 @@ h4 {
 .img-fluid {
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);
     border-radius: 10px;
+    height: 400px;
+    width: 900px;
     transition: transform 0.2s;
 }
 
@@ -107,4 +109,9 @@ body {
 .company-logo {
     max-width: 100%;
     height: auto;
+}
+.uniform-image {
+    width: 300%; /* or any specific width */
+    height: 300px; /* or any specific height */
+    object-fit: cover; /* This will ensure that your images are not stretched or squished */
 }
